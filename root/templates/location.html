@@ -1,0 +1,26 @@
+<b>
+	<form action="/location/" method="GET">
+	    
+	    {{ locationSearchForm }}
+    	<input type="submit" value="Submit">
+	</form>
+	
+	
+		
+	<form action="/location/" method="POST">
+		{% csrf_token %} 
+		<table>
+		{{searchResults.as_p}} 
+		</table>
+		<input type="submit" value="Save Location">
+	</form>
+
+	{% if messages %}
+	<ul class="messages">
+	    {% for message in messages %}
+	    <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+	    {% endfor %}
+	</ul>
+	{% endif %}
+</b>
+
